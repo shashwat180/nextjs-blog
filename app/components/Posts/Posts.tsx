@@ -48,12 +48,14 @@ const Posts: React.FC<PostsProps> = ({ communityData }) => {
     <Stack>
       {postStateValue.posts.map((item) => (
         <PostItem
+          key={item.id}
           post={item}
           userIsCreator={user?.uid === item.creatorId}
-          userLikeValue={undefined}
+          userLikeValue={1}
           onLike={onLikes}
-          onSelect={onSelect}
+          onSelectPost={onSelect}
           onDeletePost={onDeletePost}
+          homePage={true}
         />
       ))}
     </Stack>

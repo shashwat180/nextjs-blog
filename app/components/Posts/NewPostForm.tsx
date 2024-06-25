@@ -24,7 +24,7 @@ type NewPostFormProps = {
   user: User;
 };
 
-const formTabs: TabItem[] = [
+const formTabs: Tabitem[] = [
   {
     title: "Post",
     icon: IoDocumentText,
@@ -41,7 +41,7 @@ const formTabs: TabItem[] = [
   },
 ];
 
-export type TabItem = {
+export type Tabitem = {
   title: string;
   icon: typeof Icon.arguments;
 };
@@ -75,6 +75,7 @@ const NewPostForm: React.FC<NewPostFormProps> = ({ user }) => {
       numberOfComments: 0,
       likes: 0,
       createdAt: serverTimestamp() as Timestamp,
+      id: "",
     };
 
     setLoading(true);

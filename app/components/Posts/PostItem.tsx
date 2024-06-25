@@ -60,7 +60,7 @@ const PostItem: React.FC<PostItemProps> = ({
       borderColor="gray.300"
       _hover={{ bg: "#f2f6f7", borderRadius: 10 }}
       cursor="pointer"
-      onClick={onSelectPost}
+      // onClick={onSelectPost}
     >
       <Flex direction="column" width="100%">
         <Stack spacing={1} p="10px">
