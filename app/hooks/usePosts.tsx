@@ -9,24 +9,29 @@ import { useRecoilState } from "recoil";
 const usePosts = () => {
   const [postStateValue, setPostStateValue] = useRecoilState(postState);
 
-  const onLikes = async (post: Post, likes: number, communityId: string) => {
-    try {
-      const { likes } = post;
-      const existingVote = postStateValue.postLikes.find(
-        (likes) => likes.postId === post.id
-      );
+  const onLikes = async () => {};
 
-      const batch = writeBatch(firestore);
-      const updatedPost = { ...post };
-      const updatedPosts = [...postStateValue.posts];
-      const updatedPostLikes = [...postStateValue.postLikes];
-      if (!existingVote) {
-      } else {
-      }
-    } catch (error) {
-      console.log("onLike error", error);
-    }
-  };
+  // const onLikes = async (post:Post, likes:number, communityId:string) => {
+  //   try {
+  //     const {likes}=post;
+  //     const existingVote=postStateValue.postLikes.find((likes)=>likes.postId===post.id)
+
+  //     const batch =writeBatch(firestore)
+  //     const updatedPost={...post}
+  //     const updatedPosts=[...postStateValue.posts]
+  //     const updatedPostLikes=[...postStateValue.postLikes]
+  //     if(!existingVote){
+
+  //     }
+  //     else{
+
+  //     }
+
+  //   } catch (error) {
+  //     console.log('onLike error',error)
+  //   }
+
+  // };
 
   const onSelect = () => {
     return <PostPage />;
