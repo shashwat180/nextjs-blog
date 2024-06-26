@@ -29,24 +29,26 @@ import {
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
+import { IoPeopleOutline } from "react-icons/io5";
 
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  href: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "Home", icon: FiHome, href: "/" },
+  { name: "Communities", icon: IoPeopleOutline, href: "/communities" },
+  { name: "Explore", icon: FiCompass, href: "/explore" },
+  { name: "Favourites", icon: FiStar, href: "/favourites" },
+  { name: "Settings", icon: FiSettings, href: "/settings" },
 ];
 
 const AdditionalLinkItems: Array<LinkItemProps> = [
-  { name: "Help", icon: FiHelpCircle }, // Replace with appropriate icons
-  { name: "Privacy Policy", icon: FiShield },
-  { name: "User Agreement", icon: FiFileText },
-  { name: "About Us", icon: FiInfo },
+  { name: "Help", icon: FiHelpCircle, href: "/help" }, // Replace with appropriate icons
+  { name: "Privacy Policy", icon: FiShield, href: "/privacy-policy" },
+  { name: "User Agreement", icon: FiFileText, href: "/user-agreement" },
+  { name: "About Us", icon: FiInfo, href: "/about-us" },
 ];
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -96,7 +98,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     >
       {LinkItems.map((link, index) => (
         <React.Fragment key={link.name}>
-          <NavItem key={link.name} icon={link.icon}>
+          <NavItem key={link.name} icon={link.icon} href={link.href}>
             {link.name}
           </NavItem>
           {index === LinkItems.length - 1 && (
@@ -110,7 +112,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         </React.Fragment>
       ))}
       {AdditionalLinkItems.map((link, index) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} href={link.href}>
           {link.name}
         </NavItem>
       ))}
@@ -121,16 +123,17 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   icon: IconType;
   children: ReactText;
+  href: string;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
   return (
     <Link
-      href="#"
+      href={href}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >
       <Flex
-        mt={4}
+        mt={3}
         align="center"
         p="2"
         mx="2"

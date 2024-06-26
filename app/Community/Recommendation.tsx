@@ -1,11 +1,11 @@
 import { firestore } from "@/Firebase/clientApp";
 import { Community } from "@/atoms/communities/communitiesAtoms";
 import useCommunityData from "@/hooks/useCommunityData";
-import { Flex, Image, Text, Icon, Button, Box } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { FaReddit } from "react-icons/fa6";
+import { MdPeopleAlt } from "react-icons/md";
 
 const Recommendation: React.FC = () => {
   const [communities, setCommunities] = useState<Community[]>([]);
@@ -65,7 +65,7 @@ const Recommendation: React.FC = () => {
             return (
               <Link key={item.id} href={`/communities/${item.id}`}>
                 <Flex
-                  position="relative"
+                  position="sticky"
                   align="center"
                   fontSize="10pt"
                   borderBottom="1px solid"
@@ -85,7 +85,14 @@ const Recommendation: React.FC = () => {
                           mr={2}
                         />
                       ) : (
-                        <Icon as={FaReddit} fontSize={30} color="#00495e" />
+                        <Icon
+                          as={MdPeopleAlt}
+                          fontSize={25}
+                          color="white"
+                          bg="#00495e"
+                          borderRadius="full"
+                          mr={4}
+                        />
                       )}
                       <span
                         style={{

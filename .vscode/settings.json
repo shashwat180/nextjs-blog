@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/4f5f5a72-1bc9-4706-8d97-307de5cc89f1/resourceGroups/rgp-mozaic-wus03-01/providers/Microsoft.Web/sites/mozaic-main",
+  "appService.deploySubpath": "."
+}

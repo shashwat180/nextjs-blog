@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Flex, Image, Text } from "@chakra-ui/react";
+import { Divider, Flex, Image, Link, Text } from "@chakra-ui/react";
 import SearchInput from "./Search";
 import RightContent from "./Right Content/RightContent";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -11,6 +11,7 @@ const Navbar: React.FC = () => {
   const [user, loading, error] = useAuthState(auth);
   return (
     <Flex
+      zIndex="1"
       bg="white"
       height="65px"
       padding="6px 12px"
@@ -20,7 +21,9 @@ const Navbar: React.FC = () => {
       borderBottomColor="gray.200"
     >
       <Flex>
-        <Image src="/images/mozaic-web-logo.png" height="50px" />
+        <Link href={"/"}>
+          <Image src="/images/mozaic-web-logo.png" height="50px" />
+        </Link>
         <Text
           fontWeight={700}
           mt={4}

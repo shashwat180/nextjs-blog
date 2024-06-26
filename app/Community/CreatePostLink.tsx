@@ -2,11 +2,10 @@
 import { authModalState } from "@/atoms/authModalAtom";
 import { auth } from "@/Firebase/clientApp";
 import { Flex, Icon, Input } from "@chakra-ui/react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { BsLink45Deg } from "react-icons/bs";
-import { FaReddit } from "react-icons/fa";
+import { BsLink45Deg, BsPeopleFill } from "react-icons/bs";
 import { IoImageOutline } from "react-icons/io5";
 import { useSetRecoilState } from "recoil";
 
@@ -45,8 +44,9 @@ const CreatePostLink: React.FC = () => {
       mb={4}
       mt={70}
     >
-      <Icon as={FaReddit} fontSize={36} color="gray.300" mr={4} />
+      <Icon as={BsPeopleFill} fontSize={36} color="gray.300" mr={4} />
       <Input
+        position="sticky"
         placeholder="Create Post"
         fontSize="10pt"
         _placeholder={{ color: "gray.500" }}

@@ -1,19 +1,11 @@
 import { Post } from "@/atoms/postsAtom";
-import {
-  Flex,
-  Icon,
-  Image,
-  Spinner,
-  Stack,
-  Text,
-  textDecoration,
-} from "@chakra-ui/react";
+import { Flex, Icon, Image, Spinner, Stack, Text } from "@chakra-ui/react";
 import moment from "moment";
 import Link from "next/link";
 import React, { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
-import { BsChat, BsDot } from "react-icons/bs";
-import { FaReddit, FaRegHeart } from "react-icons/fa";
+import { BsChat, BsDot, BsPeopleFill } from "react-icons/bs";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { IoArrowRedoOutline, IoBookmarkOutline } from "react-icons/io5";
 
 type PostItemProps = {
@@ -76,7 +68,12 @@ const PostItem: React.FC<PostItemProps> = ({
                     mr={2}
                   />
                 ) : (
-                  <Icon as={FaReddit} fontSize="18pt" mr={1} color="blue.500" />
+                  <Icon
+                    as={BsPeopleFill}
+                    fontSize="18pt"
+                    mr={1}
+                    color="#00495e"
+                  />
                 )}
                 <Link href={`communities/${post.communityId}`}>
                   <Text
@@ -111,7 +108,12 @@ const PostItem: React.FC<PostItemProps> = ({
             _hover={{ bg: "#b8c7cc" }}
             cursor="pointer"
           >
-            <Icon as={FaRegHeart} mr={2} />
+            <Icon
+              as={userLikeValue === 1 ? FaHeart : FaRegHeart}
+              color={userLikeValue === 1 ? "#00495e" : "gray.400"}
+              onClick={onLike}
+              mr={2}
+            />
             <Text fontSize="9pt">{post.likes}</Text>
           </Flex>
 
