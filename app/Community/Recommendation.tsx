@@ -81,7 +81,7 @@ const Recommendation: React.FC = () => {
                         <Image
                           src={item.imageURL}
                           borderRadius="full"
-                          boxSize="28"
+                          boxSize="25px"
                           mr={2}
                         />
                       ) : (
