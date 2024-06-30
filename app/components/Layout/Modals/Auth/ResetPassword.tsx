@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Flex, Icon, Input, Text } from "@chakra-ui/react";
+import { Button, Flex, Icon, Image, Input, Text } from "@chakra-ui/react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { BsDot, BsReddit } from "react-icons/bs";
 import { authModalState, ModalView } from "@/atoms/authModalAtom";
@@ -25,7 +25,8 @@ const ResetPassword: React.FC = () => {
   };
   return (
     <Flex direction="column" alignItems="center" width="100%">
-      <Icon as={BsReddit} color="brand.100" fontSize={40} mb={2} />
+      <Image src="/images/mozaic-web-logo.png" boxSize={20} alt="Mozaic Logo" />
+      {/* <Icon as={BsReddit} color="brand.100" fontSize={40} mb={2} /> */}
       <Text fontWeight={700} mb={2}>
         Reset your password
       </Text>

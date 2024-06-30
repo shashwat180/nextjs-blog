@@ -1,3 +1,4 @@
+"use client";
 import { Post } from "@/atoms/postsAtom";
 import { Flex, Icon, Image, Spinner, Stack, Text } from "@chakra-ui/react";
 import moment from "moment";
@@ -11,7 +12,7 @@ import { IoArrowRedoOutline, IoBookmarkOutline } from "react-icons/io5";
 type PostItemProps = {
   post: Post;
   userIsCreator: boolean;
-  userLikeValue: number;
+  userLikeValue?: number;
   onLike: () => {};
   onDeletePost: (post: Post) => Promise<boolean>;
   onSelectPost?: (post: Post) => void;
@@ -52,7 +53,7 @@ const PostItem: React.FC<PostItemProps> = ({
       borderColor="gray.300"
       _hover={{ bg: "#f2f6f7", borderRadius: 10 }}
       cursor="pointer"
-      // onClick={onSelectPost}
+      onClick={() => onSelectPost && onSelectPost(post)}
     >
       <Flex direction="column" width="100%">
         <Stack spacing={1} p="10px">
@@ -80,6 +81,7 @@ const PostItem: React.FC<PostItemProps> = ({
                     color="gray.500"
                     fontWeight={700}
                     _hover={{ textDecoration: "underline" }}
+                    onClick={(event) => event.stopPropagation()}
                   >{`${post.communityId}`}</Text>
                 </Link>
                 <Icon as={BsDot} />
